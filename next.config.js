@@ -2,7 +2,7 @@ const withSass = require('@zeit/next-sass');
 
 console.log(process.env.API_HOST);
 
-module.exports = withSass({
+exports = withSass({
   sassLoaderOptions: {
     includePaths: ["node_modules"]
   },
@@ -10,3 +10,7 @@ module.exports = withSass({
     apiHost: process.env.API_HOST
   }
 });
+
+console.log(exports);
+
+module.exports = exports;
