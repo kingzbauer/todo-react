@@ -44,7 +44,7 @@ class Page extends React.Component {
 }
 
 Page.getInitialProps = async () => {
-    console.log(process, 'PROCESS');
+    console.log(process.env.apiHost, 'PROCESS');
   
     let resp = await fetch(`http://${process.env.apiHost}/api/v1/todos/`);
     let todos = await resp.json();
