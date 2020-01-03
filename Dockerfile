@@ -10,7 +10,8 @@ RUN npm install
 
 # build the project
 ARG API_HOST
-ENV API_HOST="$API_HOST"
+ARG CLI_API_HOST
+ENV API_HOST="$API_HOST" CLI_API_HOST="$CLI_API_HOST"
 COPY ./ ./
 RUN npm run build
 
