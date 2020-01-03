@@ -7,7 +7,8 @@ exports = withSass({
     includePaths: ["node_modules"]
   },
   env: {
-    apiHost: process.env.API_HOST
+    apiHost: process.env.API_HOST,
+    cliApiHost: process.env.CLI_API_HOST
   }
 });
 

@@ -3,6 +3,7 @@ import NewTodo from "../components/NewTodo";
 import Main from "../components/Main";
 import "../styles/style.scss";
 import fetch from "isomorphic-unfetch";
+import { apiHost } from "../utils";
 
 class Page extends React.Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class Page extends React.Component {
     }
 
     static async getTodos() {
-	let resp = await fetch(`http://${process.env.apiHost}/api/v1/todos/`);
+	let resp = await fetch(`http://${apiHost()}/api/v1/todos/`);
 	let todos = await resp.json();
 	
 	console.log(`async Todos: ${todos.length}`);
@@ -44,9 +45,9 @@ class Page extends React.Component {
 }
 
 Page.getInitialProps = async () => {
-    console.log(process.env.apiHost, 'PROCESS');
+    console.log(apiHost(), 'PROCESS');
   
-    let resp = await fetch(`http://${process.env.apiHost}/api/v1/todos/`);
+    let resp = await fetch(`http://${apiHost()}/api/v1/todos/`);
     let todos = await resp.json();
     
     console.log(`Todos: ${todos.length}`);

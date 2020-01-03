@@ -1,4 +1,5 @@
 import fetch from "isomorphic-unfetch";
+import { apiHost } from "../utils";
 
 class NewTodo extends React.Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class NewTodo extends React.Component {
     async uploadTodo() {
 	let payload = {title: this.state.title};
 
-	let resp = await fetch(`http://${process.env.apiHost}/api/v1/todos/`, {
+	let resp = await fetch(`http://${apiHost()}/api/v1/todos/`, {
 	    body: JSON.stringify(payload),
 	    method: 'POST',
 	    headers: {
