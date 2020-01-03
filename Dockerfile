@@ -9,6 +9,8 @@ COPY package*.json ./
 RUN npm install
 
 # build the project
+ARG API_HOST
+ENV API_HOST="$API_HOST"
 COPY ./ ./
 RUN npm run build
 
