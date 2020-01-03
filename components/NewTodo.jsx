@@ -28,7 +28,7 @@ class NewTodo extends React.Component {
     async uploadTodo() {
 	let payload = {title: this.state.title};
 
-	let resp = await fetch(`http://localhost/api/v1/todos/`, {
+	let resp = await fetch(`http://${process.env.apiHost}/api/v1/todos/`, {
 	    body: JSON.stringify(payload),
 	    method: 'POST',
 	    headers: {

@@ -16,7 +16,7 @@ class Page extends React.Component {
     }
 
     static async getTodos() {
-	let resp = await fetch('http://localhost/api/v1/todos/');
+	let resp = await fetch(`http://${process.env.apiHost}/api/v1/todos/`);
 	let todos = await resp.json();
 	
 	console.log(`async Todos: ${todos.length}`);
@@ -44,7 +44,7 @@ class Page extends React.Component {
 }
 
 Page.getInitialProps = async () => {
-    let resp = await fetch('http://localhost/api/v1/todos/');
+    let resp = await fetch(`http://${process.env.apiHost}/api/v1/todos/`);
     let todos = await resp.json();
     
     console.log(`Todos: ${todos.length}`);
