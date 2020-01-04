@@ -1,4 +1,5 @@
 import NewTodo from "./NewTodo";
+import Todo from "./Todo";
 
 const Component = props => (
     <nav className="panel">
@@ -9,7 +10,7 @@ const Component = props => (
 	</div>
       </div>
       {props.todos.map((todo, i) => (
-	  <a key={i} className="panel-block">{ todo.title }</a>
+	  <Todo todo={todo} key={i} />
       ))}
 	<br/>
 	<div className="panel-block">
